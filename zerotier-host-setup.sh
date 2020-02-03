@@ -18,7 +18,6 @@ nmcli con down box0 ; nmcli con down "Wired connection 1" ; nmcli con up box0
 
 # This "bug" should have been fixed in balena according to this issue : https://github.com/balena-os/meta-balena/issues/958
 # But still confirmed mandatory in balenaOS 2.46.1+rev3
-# TODO : Do not survive host reboot !
 iptables -A FORWARD -i box0 -j ACCEPT
 iptables -A FORWARD -o box0 -j ACCEPT
 
