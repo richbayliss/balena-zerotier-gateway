@@ -14,7 +14,7 @@ High-level guidelines for new comers :
 4- Configure an IP auto-assign range mapped to a part of your LAN network. (eg. 192.168.1.200 - 192.168.1.250). This range will be assigned to remote devices by ZeroTier's DHCP.
 5- To avoid any issues, review your LAN's DHCP/router configuration and assign him another range (eg. 192.168.1.10 - 192.168.1.199). Overlaps must be avoided
 6- Create an account on https://www.balena.io/cloud
-7- Setup a new balena application
+7- Setup a new balena application.
 8- Flash your sbc SD card with a generated image
 9- Turn on the device and be sure it's online in Balena dashboard
 10- To avoid zombie state, pin the device to the factory or latest release
