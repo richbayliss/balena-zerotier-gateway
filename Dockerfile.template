@@ -14,7 +14,7 @@ RUN systemctl mask NetworkManager.service
 RUN curl https://install.zerotier.com | bash; exit 0
 
 WORKDIR /scripts
-COPY start.sh .
+COPY scripts/start.sh .
 RUN chmod +x start.sh
 
 CMD /bin/bash start.sh

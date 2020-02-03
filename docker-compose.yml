@@ -9,7 +9,7 @@ services:
     volumes:
       - volume_zerotier:/var/lib/zerotier-one
     build:
-      context: ./zerotier
+      context: ./
     # privileged is needed for ZeroTier to avoid "cannot bind to local control interface port" error
     privileged: true
     network_mode: host
