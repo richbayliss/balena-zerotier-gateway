@@ -1,0 +1,20 @@
+FROM balenalib/%%BALENA_MACHINE_NAME%%:latest
+
+# TODO: Verify if systemd really mandatory
+RUN apt-get update
+RUN apt-get install -y network-manager systemd bridge-utils
+RUN install_packages
+
+# Mask NM service in container to avoid conflicts with host
+# Source : https://www.balena.io/docs/reference/OS/network/2.x/#changing-the-network-at-runtime
+RUN systemctl mask NetworkManager.service
+
+# Install ZT
+# TODO: Improve error code handling instead of forcing to exit 0
+RUN curl https://install.zerotier.com | bash; exit 0
+
+WORKDIR /scripts
+COPY start.sh .
+RUN chmod +x start.sh
+
+CMD /bin/bash start.sh

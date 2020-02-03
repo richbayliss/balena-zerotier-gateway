@@ -1,0 +1,28 @@
+version: '2.1'
+
+volumes:
+  volume_zerotier:
+
+services:
+  zerotier:
+    # This volume is needed to make ZT configuration survive a reboot and new container version
+    volumes:
+      - volume_zerotier:/var/lib/zerotier-one
+    build:
+      context: ./zerotier
+      #dockerfile: Dockerfile
+    # privileged is needed for ZeroTier to avoid "cannot bind to local control interface port" error
+    privileged: true
+    network_mode: host
+    # SYS_ADMIN is needed because NET_ADMIN does not include the ioctl() required to put /dev/net/tun in tap mode.
+    # Source : https://zerotier.atlassian.net/wiki/spaces/SD/pages/7536656/Running+ZeroTier+in+a+Docker+Container
+    # NET_ADMIN is also needed to avoid "zerotier-one: fatal error: cannot bind to local control interface port" error
+    cap_add:
+      - SYS_ADMIN
+      - NET_ADMIN
+    # Enable dbus communications for nmcli commands
+    # Source : https://github.com/balena-io/wifi-connect
+    labels:
+      io.balena.features.dbus: '1'
+    environment:
+      DBUS_SYSTEM_BUS_ADDRESS: "unix:path=/host/run/dbus/system_bus_socket"
