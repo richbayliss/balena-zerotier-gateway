@@ -3,7 +3,7 @@
 # This script could be replaced with proper base image preparation, and edit of /etc/NetworkManager/system-connections in SD-Card
 # In the meantime, this script has to be executed on all host devices that will receive this ZeroTier container
 
-echo "### Starting Balena host bridge setup"
+printf "### Starting Balena host bridge setup"
 
 # The bridge name must not start with br*, because balena's default config is to exclude br* from networkmanager as reported here : https://forums.balena.io/t/bridged-network-configuration/2325/11
 nmcli con add ifname box0 type bridge con-name box0
@@ -21,4 +21,4 @@ nmcli con down box0 ; nmcli con down "Wired connection 1" ; nmcli con up box0
 iptables -A FORWARD -i box0 -j ACCEPT
 iptables -A FORWARD -o box0 -j ACCEPT
 
-echo "### Finished Balena host bridge setup"
+printf "### Finished Balena host bridge setup"
