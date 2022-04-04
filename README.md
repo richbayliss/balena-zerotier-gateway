@@ -1,3 +1,5 @@
+![logo](https://raw.githubusercontent.com/richbayliss/balena-zerotier-gateway/master/logo.png)
+
 # ZeroTier Router on Balena
 
 ## How to use:
