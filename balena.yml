@@ -1,0 +1,21 @@
+name: ZeroTier-Gateway
+type: sw.application
+joinable: false
+description: >-
+  Use your balenaOS device as a gateway in a ZeroTier VPN (https://www.zerotier.com/).
+assets:
+  repository:
+    type: blob.asset
+    data:
+      url: 'https://github.com/richbayliss/balena-zerotier-gateway'
+  logo:
+    type: blob.asset
+    data:
+      url: >-
+        https://raw.githubusercontent.com/richbayliss/balena-zerotier-gateway/master/logo.png
+data:
+  defaultDeviceType: raspberrypi3
+  supportedDeviceTypes:
+    - raspberrypi3
+    - fincm3
+version: 0.0.1
