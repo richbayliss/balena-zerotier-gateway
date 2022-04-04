@@ -19,6 +19,7 @@ services:
     cap_add:
       - SYS_ADMIN
       - NET_ADMIN
+      - NET_RAW
     # Enable dbus communications for nmcli commands
     # Source : https://github.com/balena-io/wifi-connect
     labels:
