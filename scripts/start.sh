@@ -5,7 +5,7 @@ printf "### Starting ZeroTier interface"
 service zerotier-one start
 sleep 5
 zerotier-cli join $ZT_NETWORK
-zerotier-cli set $ZT_NETWORK allowManaged=0
+zerotier-cli set $ZT_NETWORK
 
 while true; do
   # brctl show box0 | grep ztbpaltgeu > /dev/null 2>&1
