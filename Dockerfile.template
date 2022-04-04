@@ -13,6 +13,8 @@ RUN systemctl mask NetworkManager.service
 # TODO: Improve error code handling instead of forcing to exit 0
 RUN curl https://install.zerotier.com | bash; exit 0
 
+RUN sed -i 's/\/usr\/sbin\/zerotier-one/\/usr\/sbin\/zerotier-one -U/g' /lib/systemd/system/zerotier-one.service
+
 WORKDIR /scripts
 COPY scripts/start.sh .
 RUN chmod +x start.sh
