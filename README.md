@@ -5,6 +5,8 @@
 ## How to use:
 - create a new fleet on Balena https://balena.io
 - create a network on ZeroTier https://my.zerotier.com/
+- under `IPv4 Auto-Assign`, choose a IP address range that doesn't conflict with existing networks
+  - if your network is `192.168.*.*`, make sure to choose something different, like `10.144.*.*`. 
 - copy the network ID (e.g. abcd12ef3456gh78)
 - update the application variables on Balena, add:
   - `ZT_NETWORK` = ZeroTier network ID
@@ -18,6 +20,7 @@
   - they can now use the connection as their default route
 
 ## Tested on:
-- Raspberry Pi 3B+ running BalenaOS 2.95.8
+- Raspberry Pi 3B+ running balenaOS 2.95.8
   - ZeroTier version 1.8.7
-
+- Raspberry Pi 4, running balenaOS >=2.88.5
+  - ZeroTier version 1.8.7
