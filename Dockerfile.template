@@ -18,5 +18,6 @@ RUN sed -i 's/\/usr\/sbin\/zerotier-one/\/usr\/sbin\/zerotier-one -U/g' /lib/sys
 WORKDIR /scripts
 COPY scripts/start.sh .
 RUN chmod +x start.sh
+RUN update-alternatives --set iptables /usr/sbin/iptables-legacy
 
 CMD /bin/bash start.sh
