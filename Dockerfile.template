@@ -2,7 +2,7 @@ FROM balenalib/%%BALENA_MACHINE_NAME%%:latest
 
 # TODO: Verify if systemd really mandatory
 RUN apt-get update
-RUN apt-get install -y network-manager systemd bridge-utils
+RUN apt-get install -y network-manager systemd bridge-utils iptables
 RUN install_packages
 
 # Mask NM service in container to avoid conflicts with host
