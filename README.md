@@ -9,7 +9,8 @@
   - if your network is `192.168.*.*`, make sure to choose something different, like `10.144.*.*`. 
 - copy the network ID (e.g. abcd12ef3456gh78)
 - update the application variables on Balena, add:
-  - `ZT_NETWORK` = ZeroTier network ID
+  - `ZT_NETWORK` = ZeroTier network ID 
+  - join multiple networks by separating the IDs with a comma
 - push this repository to your balena application
 - add a device to your Balena fleet
 - wait until the device has started and is running the application
